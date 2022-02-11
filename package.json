@@ -104,12 +104,15 @@
     "@vaadin/vaadin-virtual-list": "22.0.3",
     "@vaadin/vertical-layout": "22.0.3",
     "@vaadin/virtual-list": "22.0.3",
+    "ckeditor5-webcomponent": "2.0.5",
     "construct-style-sheets-polyfill": "3.0.4",
     "date-fns": "2.23.0",
+    "line-awesome": "1.3.0",
     "lit": "2.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.16.7",
+    "@ckeditor/ckeditor5-dev-utils": "^28.0.2",
     "@vaadin/application-theme-plugin": "./target/plugins/application-theme-plugin",
     "@vaadin/build-status-plugin": "./target/plugins/build-status-plugin",
     "@vaadin/theme-live-reload-plugin": "./target/plugins/theme-live-reload-plugin",
@@ -238,8 +241,10 @@
       "@vaadin/vaadin-virtual-list": "22.0.3",
       "@vaadin/vertical-layout": "22.0.3",
       "@vaadin/virtual-list": "22.0.3",
+      "ckeditor5-webcomponent": "2.0.5",
       "construct-style-sheets-polyfill": "3.0.4",
       "date-fns": "2.23.0",
+      "line-awesome": "1.3.0",
       "lit": "2.0.0"
     },
     "devDependencies": {
@@ -265,6 +270,6 @@
       "workbox-precaching": "6.4.2",
       "workbox-webpack-plugin": "6.4.2"
     },
-    "hash": "2f10f8a5739a66261011be17271b2bfcaf1a026fb472f5aaafc3795fbb9d0994"
+    "hash": "357808108d61604d209acf67ccd9d41d2bfd6c503c45fb1b1890fa45b122c09f"
   }
 }

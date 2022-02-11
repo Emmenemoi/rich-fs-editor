@@ -34,3 +34,9 @@
   align-items: center;
   display: flex;
 }
+
+.image-card {
+  float: left;
+  width: 300px;
+  height: 250px;
+}

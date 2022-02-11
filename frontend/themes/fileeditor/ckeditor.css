@@ -1,0 +1,9 @@
+.ck.ck-editor {
+    height: 100%;
+}
+.ck-editor__main {
+    height: calc(100% - 40px);
+}
+.ck-editor__editable {
+    height: 100% ;
+}

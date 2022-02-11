@@ -1,0 +1,17 @@
+
+vaadin-button[theme=icon]  {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    border: none;
+    background: none;
+    padding: 0;
+}
+vaadin-button[theme=icon] vaadin-icon {
+    width: 20px; height: 20px;
+}
+
+vaadin-grid-cell-content {
+    padding-right: 0;
+    padding-left: 5px;
+}

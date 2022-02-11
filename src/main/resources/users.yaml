@@ -1,0 +1,3 @@
+- username: admin
+  hashedPassword: "$2a$12$TfvLzlC6ETVuHmBCx7sAVeHj9uuZUG3wq99QYg25MKU3PkezC0wx2"
+  roles: [ADMIN]
