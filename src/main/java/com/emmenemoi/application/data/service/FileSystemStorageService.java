@@ -32,6 +32,7 @@ public class FileSystemStorageService implements StorageService {
     protected final Path rootFs;
     protected final Path rootGitFs;
     protected final Path baseImageUrl;
+    protected final String gitRepo;
     protected Git git;
 
     @Autowired
@@ -40,6 +41,7 @@ public class FileSystemStorageService implements StorageService {
         this.rootFs = Path.of(properties.getRoot()).normalize();
         this.baseImageUrl = Path.of(properties.getImagesUrl());
         this.rootGitFs = Path.of(properties.getGitRoot());
+        this.gitRepo = properties.getGitRepo();
 
         if (properties.isCreateDirectories()) {
             Files.createDirectories(this.uploadRootFs);
@@ -50,11 +52,11 @@ public class FileSystemStorageService implements StorageService {
         }
 
         if (!properties.getGitRepo().isEmpty()){
-            logger.info("Loading git repo at {} in {}", properties.getGitRepo(), getRootFs().toAbsolutePath());
+            logger.info("Loading git repo at {} in {}", this.gitRepo, getRootFs().toAbsolutePath());
             try {
                 if(!rootFs.toFile().exists() || !new File(rootGitFs.toFile(), ".git").exists()){
                     Git.cloneRepository()
-                        .setURI(properties.getGitRepo())
+                        .setURI(this.gitRepo)
                         .setDirectory(rootGitFs.toFile())
                         .call();
                 }
@@ -82,8 +84,10 @@ public class FileSystemStorageService implements StorageService {
 
     public void publish() throws GitAPIException {
         if(git != null) {
+            logger.info("commit and push to {}", gitRepo);
             git.add().addFilepattern(".").call();
             git.commit().setMessage("Publish content").call();
+            git.push().call();
         }
     }
 

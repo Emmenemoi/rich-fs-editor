@@ -70,9 +70,13 @@ public class FileSelector extends AbstractField<FileSelector, File> implements H
         if (this.filter != null) {
             this.root.setFilter(this.filter);
         }
+        setRenameFileConsumer(renameFileConsumer);
+        setAddFileConsumer(addFileConsumer);
+        setAddFolderConsumer(addFolderConsumer);
+        setDeleteConsumer(deleteConsumer);
         logger.info("init tree at {} / {} children (loaded items: {})", rootFile.getAbsolutePath(),  rootFile.listFiles().length, this.root.getChildren(this.rootFile).size());
         this.tree = this.setupTree(this.root);
-        this.add(new Component[]{this.tree});
+        this.add(new Component[]{this.tree});;
     }
 
     public void setRenameFileConsumer(Consumer<File> renameFileConsumer) {

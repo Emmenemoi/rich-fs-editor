@@ -40,3 +40,10 @@
   width: 300px;
   height: 250px;
 }
+.navigator-view .grid-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.navigator-view .grid-wrapper > div {
+  flex-grow: 1;
+}

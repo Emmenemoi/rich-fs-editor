@@ -219,13 +219,14 @@ public class NavigatorView extends Div {
 
     private Div createGridLayout(SplitLayout splitLayout, StorageProperties storageProperties, AuthenticatedUser authenticatedUser) {
         Div wrapper = new Div();
-        wrapper.setId("grid-wrapper");
+        wrapper.setClassName("grid-wrapper");
         wrapper.setWidth("500px");
         splitLayout.addToPrimary(wrapper);
         fileSelect = new FileSelector(fileSystemStorageService.getRootFs().toFile(), storageProperties.getFilterFiles(),
                 this::renameFileAction, this::addFileAction, this::addFolderAction, this::deleteItemAction);
         fileSelect.setWidthFull();
-        fileSelect.setHeightFull();
+        //fileSelect.getElement().getStyle().set("flexGrow", "1");
+        //fileSelect.setHeightFull();
         wrapper.add(fileSelect);
         if (fileSystemStorageService.hasGit() && authenticatedUser.get().isPresent() && authenticatedUser.get().get().getRoles().contains(Role.ADMIN)) {
             Button publish = new Button("Publish all", e -> {

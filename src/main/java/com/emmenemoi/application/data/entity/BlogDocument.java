@@ -89,6 +89,10 @@ public class BlogDocument {
         if (lines.isEmpty()){
             return;
         }
+        if (blogDocument.getFilename().endsWith(".yaml")) {
+            blogDocument.setFrontmatter(Files.readString(blogDocument.getFilepath()));
+            return;
+        }
         // detect YAML front matter
         Iterator<String> lineItr = lines.iterator();
         String line = lineItr.next();
@@ -112,6 +116,7 @@ public class BlogDocument {
         StringBuilder content = new StringBuilder();
         while(lineItr.hasNext()) {
             content.append(lineItr.next());
+            content.append("\n");
         }
         blogDocument.setContent(content.toString());
         blogDocument.setFrontmatter(frontmatter.toString());

@@ -24,7 +24,10 @@ FROM openjdk:13-jdk-alpine
 VOLUME /tmp
 ARG DEPENDENCY=/workspace/app/target/dependency
 
-RUN mkdir -p /git && mkdir -p /uploads
+RUN apk --update --no-cache upgrade \
+    && apk add git openssh-client
+
+RUN mkdir -p /git && mkdir -p /uploads && mkdir -m 0700 /root/.ssh 
 COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
